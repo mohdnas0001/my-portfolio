@@ -12,6 +12,10 @@ import SectionHeading from '@/common/components/shared/section-heading';
 import { experiencesData } from '@/common/lib/data';
 import SectionDivider from '@/common/components/shared/section-divider';
 
+// Type assertion to bypass TypeScript error
+const VTimeline = VerticalTimeline as any;
+const VTimelineElement = VerticalTimelineElement as any;
+
 export default function Experience() {
   const { ref } = useSectionInView('experience');
   const { theme } = useTheme();
@@ -24,11 +28,11 @@ export default function Experience() {
       className="w-full scroll-mt-20 dark:bg-darkBg dark:text-white"
     >
       <SectionHeading>My experience</SectionHeading>
-      <VerticalTimeline animate={false}>
+      <VTimeline animate={false}>
         {ihasMounted &&
           experiencesData.map((item, index) => (
             <React.Fragment key={index}>
-              <VerticalTimelineElement
+              <VTimelineElement
                 contentStyle={{
                   background:
                     theme === 'light' ? '#f3f4f6' : 'rgba(255, 255, 255, 0.05)',
@@ -58,10 +62,10 @@ export default function Experience() {
                 <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
                   {item.description}
                 </p>
-              </VerticalTimelineElement>
+              </VTimelineElement>
             </React.Fragment>
           ))}
-      </VerticalTimeline>
+      </VTimeline>
       <div className="flex w-full justify-center dark:bg-darkBg">
         <SectionDivider />
       </div>
