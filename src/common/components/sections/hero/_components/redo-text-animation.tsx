@@ -43,7 +43,9 @@ export default function RedoTextAnimation({ delay }: IRedoTextAnimationProps) {
       onUpdate(latest) {
         if (updatedThisRound.get() === true && latest > 0) {
           updatedThisRound.set(false);
-        } else if (updatedThisRound.get() === false && latest === 0) {
+        }
+        else if (updatedThisRound.get() === false && latest === 0)
+        {
           if (textIndex.get() === texts.length - 1) {
             textIndex.set(0);
           } else {
